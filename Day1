@@ -1,0 +1,3 @@
+Downloading files
+scp student11@IP:~/data/duplicate /path/to/computer 
+#scp-securecopy 
