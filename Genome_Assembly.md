@@ -1,24 +1,22 @@
-Downloading files
-scp student11@IP:~/data/duplicate /path/to/computer 
-#scp-securecopy from(path) to(path) 
 
 
-Genome Assembly
+# Genome Assembly
+
 ## Data 
+
 Escherichia coli was sequenced using the MiSeq platform (2 x 250bp). The reads were deposited in the NCBI SRA database under the accession SRR12793243.
 
-You need SRA toolkit installed before going ahead to download data
+You need to have SRAToolkit program installed in order to download the fastq files which are associated with the accession number. Once you have installed SRAToolkit, you can run the following command on the command line.
 
 ```
 fastq-dump -I SRR12793243  --split-files
 ```
 The above command will download two files: SRR12793243_1.fastq.gz and SRR12793243_2.fastq.gz.
 
-data directory 
-/home/Epicass_workshop/Day3/Data/illumina/
+Our data directory is "/home/Epicass_workshop/Day3/Data/illumina/"
 
 ## Data Quality Check
-The downloaded fastq files are raw data, therefore we have to do some quality checks and quality trimming of the data.
+The downloaded fastq files are raw data, therefore we have to do some quality checks and control.
 we create indir and XX variables assigning the PATH and the accession number to it. By doing this, we can provide the input files in a short and easy way
 ```
 indir="/home/Epicass_workshop/Day3/Data/illumina/"
@@ -28,11 +26,12 @@ XX="SRR12793243"
 Now we need to run the FastQC program to see the quality of raw data.You may store the output in /home/Epicass_workshop/Day3/myResults directory.
 We must create the outdir variable and then create the directories.
 ```
-outdir="/home/Epicass_workshop/Day3/myResults"
-mkdir ${outdir}
+outdir="/home/Epicass_workshop/Day3/myResults" #Be careful with the slash sign when assigning variables and providing outputs later
+mkdir ${outdir} or mkdir -p ${outdir} 
 mkdir ${outdir}/fastqc
 mkdir ${outdir}/fastp
 
+# option p- creates sub-directories of a directory
 fastqc -t 4 ${indir}/${XX}_*.fastq.gz -o ${outdir}/fastqc 
 ```
 check the results of the above command by downloading the *.html file to your local computer and looking at it with your browser
@@ -205,5 +204,7 @@ Bandage info ${res_path}/asm_hifi_reducedPB/asm_hifi_reducedPB.bp.p_ctg.noseq.gf
 ```
 
 
+####
+When assigning a variable, avoid using underscore (_) or if you use curly braces
 
 
