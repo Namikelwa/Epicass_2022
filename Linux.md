@@ -1,6 +1,7 @@
- Introduction to Linux
- Data setup and naviguation
+ # Introduction to Linux
+ ## Data setup and navigation
  Type the following command to get your working directory
+ 
  pwd
 
 Create a directory called data
