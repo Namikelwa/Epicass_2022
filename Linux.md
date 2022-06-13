@@ -126,8 +126,9 @@ Look at the contents of the file practical_1_commands.txt using the less command
 
 
 **Some useful Unix commands Command and What it does**
-Commandb |	What it does
-------------------------
+
+Command |	What it does
+---------  --------------
 ls |	Lists the contents of the current directory
 mkdir |	Creates a new directory
 mv |	Moves or renames a file
